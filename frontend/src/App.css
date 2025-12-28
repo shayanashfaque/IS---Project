@@ -1,0 +1,133 @@
+
+.dashboard {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h2, h3 {
+  margin-bottom: 10px;
+}
+
+
+
+.card {
+  background: #ffffff;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+
+
+canvas {
+  max-width: 100%;
+}
+
+
+
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  width: 360px;
+  padding: 24px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 10px;
+}
+
+
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+/* ===== Buttons (Global) ===== */
+button {
+  padding: 10px 16px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background-color: #155fa0;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Logout button (Dashboard header) */
+.header button {
+  background-color: #d32f2f;
+}
+
+.header button:hover {
+  background-color: #b71c1c;
+}
