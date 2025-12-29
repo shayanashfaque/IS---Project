@@ -1,6 +1,12 @@
 function LoginTable({ events }) {
-  if (!events.length) {
-    return <p>No login activity found.</p>;
+  // Guard: events must be an array
+  if (!Array.isArray(events)) {
+    return <p>No login data available.</p>;
+  }
+
+  // Empty state
+  if (events.length === 0) {
+    return <p>No login events recorded.</p>;
   }
 
   return (
@@ -15,23 +21,24 @@ function LoginTable({ events }) {
           <th>Reasons</th>
         </tr>
       </thead>
+
       <tbody>
-        {events.map((e, index) => (
+        {events.map((event, index) => (
           <tr key={index}>
             <td>
-              {e.timestamp
-                ? new Date(e.timestamp).toLocaleString()
-                : "N/A"}
+              {event.timestamp
+                ? new Date(event.timestamp).toLocaleString()
+                : "-"}
             </td>
-            <td>{e.ip_address}</td>
-            <td>{e.device}</td>
+            <td>{event.ip_address || "-"}</td>
+            <td>{event.device || "-"}</td>
             <td>
-              {typeof e.risk_score === "number"
-                ? e.risk_score.toFixed(2)
-                : "N/A"}
+              {typeof event.risk_score === "number"
+                ? event.risk_score.toFixed(2)
+                : "-"}
             </td>
-            <td>{e.decision}</td>
-            <td>{e.reasons || "—"}</td>
+            <td>{event.decision || "-"}</td>
+            <td>{event.reasons || "-"}</td>
           </tr>
         ))}
       </tbody>

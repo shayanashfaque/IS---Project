@@ -7,7 +7,7 @@ const authMiddleware = require("./authMiddleware");
 
 
 const router = express.Router();
-const JWT_SECRET = "supersecretkey";
+const JWT_SECRET = process.env.JWT_SECRET;
 
 router.post("/login", async (req, res) => {
   const { username, password, device } = req.body;

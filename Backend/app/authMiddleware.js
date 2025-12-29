@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const pool = require("./database");
 
-const JWT_SECRET = "supersecretkey";
+const JWT_SECRET = process.env.JWT_SECRET;
 
 async function authMiddleware(req, res, next) {
   const authHeader = req.headers.authorization;

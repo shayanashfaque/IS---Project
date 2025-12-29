@@ -14,10 +14,18 @@ function Dashboard({ onLogout }) {
     async function loadData() {
       try {
         const res = await fetchLoginEvents();
+
+        if (!Array.isArray(res.data)) {
+          throw new Error("Invalid response");
+        }
+
         setEvents(res.data);
         setFiltered(res.data);
       } catch (err) {
-        setError("Failed to load dashboard data");
+        console.error("Dashboard load error:", err);
+        setEvents([]);
+        setFiltered([]);
+        setError("Unauthorized or failed to load dashboard data");
       }
     }
 
@@ -32,8 +40,9 @@ function Dashboard({ onLogout }) {
     }
 
     if (dateFilter) {
+      const selectedDate = new Date(dateFilter);
       data = data.filter(
-        e => new Date(e.timestamp) >= new Date(dateFilter)
+        e => new Date(e.timestamp) >= selectedDate
       );
     }
 
@@ -52,7 +61,7 @@ function Dashboard({ onLogout }) {
         <button onClick={handleLogout}>Logout</button>
       </div>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="error">{error}</p>}
 
       <div className="card">
         <h3>Filters</h3>

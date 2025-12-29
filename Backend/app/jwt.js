@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-const JWT_SECRET = "supersecretkey"; // move to .env later
+const JWT_SECRET = process.env.JWT_SECRET; // move to .env later
 const JWT_EXPIRES_IN = "1h";
 
 function signToken(payload) {
